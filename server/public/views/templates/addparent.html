@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="lead">Add a Parent</h1>
+  <!-- <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2> -->
+  <form ng-submit="addUser()">
+    <div>
+        <label for="first_name">First Name:</label>
+        <input type="text" ng-model="user.first_name" />
+    </div>
+    <div>
+        <label for="last_name">Last Name:</label>
+        <input type="text" ng-model="user.last_name" />
+    </div>
+    <div>
+        <label for="username">Email:</label>
+        <input type="email" ng-model="user.username" />
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" ng-model="user.password" />
+    </div>
+    <div>
+        <input type="hidden" name="user_type" ng-init="user.user_type='parent'" ng-model="user.user_type" />
+    </div>
+    <input class="btn btn-default" type="submit" name="submit" value="Submit" />
+    <a href="#admin">Cancel</a>
+  </form>
+
+</div>

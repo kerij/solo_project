@@ -9,7 +9,8 @@ var session = require('express-session');
 // Route includes
 var index = require('./routes/index');
 // var user = require('./routes/user');
-// var register = require('./routes/register');
+var register = require('./routes/register');
+var student = require('/routes/student');
 
 
 app.use(bodyParser.json());
@@ -32,9 +33,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-// app.use('/register', register);
+app.use('/register', register);
 // app.use('/user', user);
 app.use('/*', index);
+app.use('/student', student);
 
 // App Set //
 app.set('port', (process.env.PORT || 5000));

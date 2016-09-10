@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 class="lead">Add a Class</h1>
+  <!-- <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2> -->
+  <form ng-submit="addClass()">
+    <div>
+        <label for="class_name">First Name:</label>
+        <input type="text" ng-model="class.class_name" />
+    </div>
+    <div>
+        <label for="period">Last Name:</label>
+        <input type="number" ng-model="class.period" />
+    </div>
+    <div>
+        <label for="teacher">Teacher:</label>
+        <!-- Need to put in an option box populated with teachers from database -->
+        <!-- <input type="text" ng-model="user.username" /> -->
+    </div>
+    <div>
+        <label for="class_info">Class Information:</label>
+        <textarea name="class_info" rows="10" cols="50" ng-model="class.class_info"></textarea>
+    </div>
+    <input class="btn btn-default" type="submit" name="submit" value="Submit" />
+    <a href="#admin">Cancel</a>
+  </form>
+
+</div>

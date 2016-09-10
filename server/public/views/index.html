@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="/styles/style.css" />
 
     <script type="text/javascript" src="/vendor/angular.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
+    <!-- <script type="text/javascript" src="/vendor/angular-route.min.js"></script> -->
+    <script type="text/javascript" src="/vendor/angular-ui-router.js"></script>
     <script type="text/javascript" src="/scripts/clientapp.js"></script>
-    <script type="text/javascript" src="/scipts/controllers/loginController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/loginController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/adminController.js"></script>
   </head>
   <body ng-app="myApp">
     <h1 class="container jumbotron text-center">Friday Folder</h1>
 
-    <main ng-view></main>
+    <main ui-view></main>
 
   </body>
 
