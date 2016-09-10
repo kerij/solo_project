@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
   console.log('new user:', saveUser);
 
   pg.connect(connection, function(err, client, done) {
-    client.query("INSERT INTO users (first_name, last_name, username, password, type) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+    client.query("INSERT INTO students (first_name, last_name, username, password, type) VALUES ($1, $2, $3, $4, $5) RETURNING id",
       [saveUser.first_name, saveUser.last_name, saveUser.username, saveUser.password, saveUser.user_type],
         function (err, result) {
           client.end();

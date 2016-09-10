@@ -17,6 +17,12 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', function($s
         console.log('sending to server...', $scope.user);
         $http.post('/register', $scope.user).then(function(response) {
           console.log('success');
+          $scope.user = {
+              first_name: '',
+              last_name: '',
+              username: '',
+              password: ''
+            };
           $location.path('/admin');
         },
         function(response) {
@@ -58,6 +64,8 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', function($s
           }
         }
 
-
+      // $scope.getTeachers = function() {
+      //
+      // }
 
 }]);

@@ -10,7 +10,7 @@ var session = require('express-session');
 var index = require('./routes/index');
 // var user = require('./routes/user');
 var register = require('./routes/register');
-var student = require('/routes/student');
+var student = require('./routes/student');
 
 
 app.use(bodyParser.json());
