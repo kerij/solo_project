@@ -26,3 +26,10 @@
   </form>
 
 </div>
+
+<div data-ng-init="getTeachers()">
+  <div class="teacherBox" ng-repeat="teacher in teachers">
+    <div id="teacherName">Teacher Name: {{teacher.first_name}} {{teacher.last_name}}</div>
+    <button id="delete" ng-click="deleteUser(teacher.id)">X</button>
+  </div>
+</div>

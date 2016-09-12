@@ -1,4 +1,4 @@
-myApp.controller('AdminController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactory', function($scope, $http, $location, userFactory) {
   console.log("admin controller working");
 
   $scope.user = {
@@ -8,6 +8,9 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', function($s
       password: ''
     };
   $scope.message = '';
+
+
+  $scope.userFactory = userFactory;
 
 
   $scope.addUser = function() {
@@ -23,6 +26,7 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', function($s
               username: '',
               password: ''
             };
+          $scope.getTeachers();
           $location.path('/admin');
         },
         function(response) {
@@ -64,8 +68,20 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', function($s
           }
         }
 
-      // $scope.getTeachers = function() {
-      //
-      // }
+      $scope.getTeachers = function() {
+        userFactory.getTeachers().then(function(response) {
+          console.log('The teachers:', response);
+          $scope.teachers = response;
+        });
+      }
+
+      $scope.deleteUser = function(userID){
+        console.log(userID);
+        $http.delete('/deleteUser/' + userID).then(function(){
+          console.log('delete went through');
+          $scope.getTeachers();
+        })
+      };
+
 
 }]);
