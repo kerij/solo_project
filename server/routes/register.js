@@ -20,6 +20,7 @@ router.post('/', function(req, res, next) {
   var saveUser = {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
+    whole_name: req.body.whole_name,
     username: req.body.username,
     password: encryptLib.encryptPassword(req.body.password),
     user_type: req.body.user_type
@@ -27,8 +28,8 @@ router.post('/', function(req, res, next) {
   console.log('new user:', saveUser);
 
   pg.connect(connection, function(err, client, done) {
-    client.query("INSERT INTO users (first_name, last_name, username, password, user_type) VALUES ($1, $2, $3, $4, $5) RETURNING id",
-      [saveUser.first_name, saveUser.last_name, saveUser.username, saveUser.password, saveUser.user_type],
+    client.query("INSERT INTO users (first_name, last_name, whole_name, username, password, user_type) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id",
+      [saveUser.first_name, saveUser.last_name, saveUser.whole_name, saveUser.username, saveUser.password, saveUser.user_type],
         function (err, result) {
           client.end();
 

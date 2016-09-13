@@ -39,17 +39,4 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
     })
 
 
-  // $routeProvider
-  //   .when('/home', {
-  //     templateUrl: '/views/home.html',
-  //     controller: "LoginController"
-  //   })
-  //
-  //   .when('/admin', {
-  //     templateUrl: '/views/admin.html',
-  //     controller: "adminController"
-  //   })
-  //   .otherwise({
-  //     redirectTo: '/home'
-  //   })
 }]);

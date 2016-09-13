@@ -26,3 +26,10 @@
   </form>
 
 </div>
+
+<div data-ng-init="getParents()">
+  <div class="parentBox" ng-repeat="parent in parents">
+    <div id="parentName">Parent Name: {{parent.first_name}} {{parent.last_name}}</div>
+    <button id="delete" ng-click="deleteUser(parent.id)">X</button>
+  </div>
+</div>

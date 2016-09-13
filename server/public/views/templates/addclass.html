@@ -3,24 +3,33 @@
   <!-- <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2> -->
   <form ng-submit="addClass()">
     <div>
-        <label for="class_name">First Name:</label>
+        <label for="class_name">Class Name:</label>
         <input type="text" ng-model="class.class_name" />
     </div>
     <div>
-        <label for="period">Last Name:</label>
+        <label for="period">Period:</label>
         <input type="number" ng-model="class.period" />
     </div>
-    <div>
-        <label for="teacher">Teacher:</label>
-        <!-- Need to put in an option box populated with teachers from database -->
-        <!-- <input type="text" ng-model="user.username" /> -->
+    <div data-ng-init="getTeachers()">
+            <label for="teacher">Teacher:</label>
+            <select ng-model="class.teacher" ng-options="teacher.whole_name for teacher in teachers">
+              <option value="">---Please select---</option>
+            </select>
     </div>
     <div>
         <label for="class_info">Class Information:</label>
-        <textarea name="class_info" rows="10" cols="50" ng-model="class.class_info"></textarea>
+        <textarea name="class_info" rows="10" cols="50" ng-model="class.class_desc"></textarea>
     </div>
     <input class="btn btn-default" type="submit" name="submit" value="Submit" />
     <a href="#admin">Cancel</a>
   </form>
 
+</div>
+
+
+<div data-ng-init="getClasses()">
+  <div class="classBox" ng-repeat="class in classes">
+    <div id="className">Class Name: {{class.class_name}} Class Period: {{class.period}}</div>
+    <button id="delete" ng-click="deleteClass(class.class_id)">X</button>
+  </div>
 </div>

@@ -14,7 +14,11 @@ var index = require('./routes/index');
 var register = require('./routes/register');
 var student = require('./routes/student');
 var getTeacher = require('./routes/getTeacher');
+var getParent = require('./routes/getParent');
+var getClass = require('./routes/getClass');
 var deleteUser = require('./routes/deleteUser');
+var deleteClass = require('./routes/deleteClass');
+var group = require('./routes/group');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -40,7 +44,11 @@ app.use('/register', register);
 // app.use('/user', user);
 app.use('/student', student);
 app.use('/getTeacher', getTeacher);
+app.use('/getParent', getParent);
+app.use('/getClass', getClass);
 app.use('/deleteUser', deleteUser);
+app.use('/deleteClass', deleteClass);
+app.use('/group', group);
 app.use('/*', index);
 
 // App Set //
