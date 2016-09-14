@@ -10,12 +10,13 @@ var session = require('express-session');
 
 // Route includes
 var index = require('./routes/index');
-// var user = require('./routes/user');
+var user = require('./routes/user');
 var register = require('./routes/register');
 var student = require('./routes/student');
 var getTeacher = require('./routes/getTeacher');
 var getParent = require('./routes/getParent');
 var getClass = require('./routes/getClass');
+var getStudent = require('./routes/getStudent');
 var deleteUser = require('./routes/deleteUser');
 var deleteClass = require('./routes/deleteClass');
 var group = require('./routes/group');
@@ -41,11 +42,12 @@ app.use(passport.session());
 
 // Routes
 app.use('/register', register);
-// app.use('/user', user);
+app.use('/user', user);
 app.use('/student', student);
 app.use('/getTeacher', getTeacher);
 app.use('/getParent', getParent);
 app.use('/getClass', getClass);
+app.use('/getStudent', getStudent);
 app.use('/deleteUser', deleteUser);
 app.use('/deleteClass', deleteClass);
 app.use('/group', group);

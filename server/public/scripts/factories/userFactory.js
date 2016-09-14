@@ -4,6 +4,7 @@ myApp.factory('userFactory', ['$http', function($http) {
   var teachers = [];
   var parents = [];
   var classes = [];
+  var students = [];
 
 
   var getTeachers = function(){
@@ -20,7 +21,7 @@ myApp.factory('userFactory', ['$http', function($http) {
           var promise = $http.get('/getParent').then(function(response) {
             parents = response.data;
             return parents;
-    });
+          });
       return promise;
   };
 
@@ -33,6 +34,14 @@ myApp.factory('userFactory', ['$http', function($http) {
       return promise;
   };
 
+  var getStudents = function(){
+          console.log('called getStudents in factory');
+          var promise = $http.get('/getStudent').then(function(response) {
+            students = response.data;
+            return students;
+          });
+      return promise;
+  };
 
 
 
@@ -47,6 +56,9 @@ return {
   classes: function(){
     return classes;
   },
+  students: function(){
+    return students;
+  },
   getTeachers: function() {
     return getTeachers();
   },
@@ -55,6 +67,9 @@ return {
   },
   getClasses: function() {
     return getClasses();
+  },
+  getStudents: function() {
+    return getStudents();
   }
 };
 
