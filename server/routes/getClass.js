@@ -27,6 +27,30 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/:teacherID', function(req, res) {
+  var teacherID = req.params.teacherID
+  pg.connect(connectionString, function(err, client, done) {
+    if(err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+
+    client.query("SELECT * FROM classes WHERE teacher_id = $1",
+                  [teacherID],
+      function(err, result) {
+        console.log('what up');
+        done();
+
+        if(err) {
+          console.log("select error: ", err);
+          res.sendStatus(500);
+        }
+        console.log('results: ', result);
+        res.send(result.rows);
+    });
+
+  });
+});
 
 
 module.exports = router;

@@ -1,5 +1,25 @@
 <div data-ng-init="isLoggedIn()">
-  <p>
-    User is: {{user}}
-  </p>
+  <h2>Welcome, {{user.first_name}}</h2>
+</div>
+
+<div>
+  <div class="classBox" ng-repeat="teacherClass in teacherClasses">
+    <div class="className">Class Name: {{teacherClass.class_name}} Class Period: {{teacherClass.period}}</div>
+    <button class="btn btn-default" class="showDesc" ng-click="showDesc = !showDesc">Edit Description</button>
+    <button class="btn btn-default" class="showWeekly" ng-click="showWeekly = !showWeekly">Edit Weekly Update</button>
+    <div ng-show = "showDesc">
+      <form ng-submit="editDesc(teacherClass.class_id)">
+        <trix-editor angular-trix ng-model="class.class_desc">{{teacherClass.class_desc}}</trix-editor>
+        <input class="btn btn-default" type="submit" name="submit" value="Submit" />
+        <button class="btn btn-default" class="hideWeekly" ng-click="showDesc = !showDesc">Cancel</button>
+      </form>
+    </div>
+    <div ng-show = "showWeekly">
+      <form ng-submit="editWeekly(teacherClass.class_id)">
+        <trix-editor angular-trix ng-model="class.weekly_update">{{teacherClass.weekly_update}}</trix-editor>
+        <input class="btn btn-default" type="submit" name="submit" value="Submit" />
+        <button class="btn btn-default" class="hideWeekly" ng-click="showWeekly = !showWeekly">Cancel</button>
+      </form>
+    </div>
+  </div>
 </div>
