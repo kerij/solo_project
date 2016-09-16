@@ -35,7 +35,7 @@ router.get('/:teacherID', function(req, res) {
       res.sendStatus(500);
     }
 
-    client.query("SELECT * FROM classes WHERE teacher_id = $1",
+    client.query("SELECT * FROM classes WHERE teacher_id = $1 ORDER BY class_id ASC",
                   [teacherID],
       function(err, result) {
         console.log('what up');

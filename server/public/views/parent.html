@@ -1,1 +1,10 @@
-<h2>Parent Angular Path Worked</h2>
+<div data-ng-init="isLoggedIn()">
+  <h2>Welcome, {{user.first_name}}</h2>
+</div>
+<button class="btn btn-default logout" ng-click="logout()">Log Out</button>
+
+<div>
+  <div class="studentBox" ng-repeat="parentStudent in parentStudents">
+    <div class="studentName">{{parentStudent.first_name}}</div>
+  </div>
+</div>

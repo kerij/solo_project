@@ -11,9 +11,7 @@ myApp.factory('teacherFactory', ['$http', function($http) {
         return promise;
   };
 
-  var editDesc = function(classID) {
-          var promise = $http.put('/')
-  }
+
 
 
 

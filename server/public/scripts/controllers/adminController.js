@@ -150,7 +150,7 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
         userFactory.getStudents().then(function(response) {
           console.log('The stuents:', response);
           $scope.students = response;
-        })
+        });
       }
 
       $scope.deleteUser = function(userID){
@@ -159,7 +159,7 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
           console.log('delete went through');
           $scope.getTeachers();
           $scope.getParents();
-        })
+        });
       }
 
       $scope.deleteClass = function(classID){
@@ -167,7 +167,14 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
         $http.delete('/deleteClass/' + classID).then(function(){
           console.log('delete went through');
           $scope.getClasses();
-        })
+        });
+      }
+
+      $scope.logout = function() {
+        $http.get('/user/logout').then(function(response) {
+          console.log('logged out');
+          $location.path("/home");
+        });
       }
 
 

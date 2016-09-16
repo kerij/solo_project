@@ -27,6 +27,30 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/:parentID', function(req, res) {
+  var parentID = req.params.parentID
+  pg.connect(connectionString, function(err, client, done) {
+    if(err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+
+    client.query("SELECT * FROM students WHERE parent1 = $1 OR parent2 = $1",
+                  [parentID],
+      function(err, result) {
+        console.log('what up');
+        done();
+
+        if(err) {
+          console.log("select error: ", err);
+          res.sendStatus(500);
+        }
+        console.log('results: ', result);
+        res.send(result.rows);
+    });
+
+  });
+});
 
 
 module.exports = router;

@@ -33,4 +33,5 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
         });
       }
     }
+
 }]);

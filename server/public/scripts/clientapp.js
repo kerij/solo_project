@@ -23,6 +23,12 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
       controller: "TeacherController"
     })
 
+    .state('parent', {
+      url: '/parent',
+      templateUrl: '/views/parent.html',
+      controller: "ParentController"
+    })
+
     .state('admin.teachers', {
       templateUrl: '/views/templates/addteacher.html',
       // controller: "AdminController" //controller might not be necessary? Inherits from parent?
