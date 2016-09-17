@@ -31,22 +31,22 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
 
     .state('admin.teachers', {
       templateUrl: '/views/templates/addteacher.html',
-      // controller: "AdminController" //controller might not be necessary? Inherits from parent?
     })
 
     .state('admin.classes', {
       templateUrl: '/views/templates/addclass.html',
-      // controller: "AdminController"
     })
 
     .state('admin.parents', {
       templateUrl: '/views/templates/addparent.html',
-      // controller: "AdminController"
     })
 
     .state('admin.students', {
       templateUrl: '/views/templates/addstudent.html',
-      // controller: "AdminController"
+    })
+
+    .state('admin.weekly', {
+      templateUrl: '/views/templates/adminweekly.html'
     })
 
 

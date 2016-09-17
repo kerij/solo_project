@@ -27,6 +27,8 @@ router.get('/', function(req, res) {
   });
 });
 
+
+
 router.get('/:teacherID', function(req, res) {
   var teacherID = req.params.teacherID
   pg.connect(connectionString, function(err, client, done) {

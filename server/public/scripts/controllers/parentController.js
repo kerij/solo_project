@@ -32,5 +32,13 @@ myApp.controller('ParentController', ['$scope', '$http', '$location', 'userFacto
     });
   }
 
+  $scope.getStudentClasses = function(student) {
+    console.log(student);
+    parentFactory.getStudentClasses(student).then(function(response) {
+      console.log('This students classes:', response);
+      $scope.studentClasses = response;
+    });
+  }
+
 
 }]);
