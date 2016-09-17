@@ -20,3 +20,31 @@
   background-color: papayawhip;
   width: 10%;
 }
+
+.classBox {
+  margin: 10px 10px 20px 10px;
+}
+
+.admin {
+  margin-top: 10px;
+}
+
+.teacherArea {
+  margin-top: 20px;
+}
+
+.parentArea {
+  margin-top: 20px;
+}
+
+.studentArea {
+  margin-top: 20px;
+}
+
+.desc {
+  margin-top: 5px;
+}
+
+.weekly {
+  margin-top: 5px;
+}

@@ -25,11 +25,17 @@
     <a href="#admin">Cancel</a>
   </form>
 
-</div>
-
-<div data-ng-init="getParents()">
-  <div class="parentBox" ng-repeat="parent in parents">
-    <div id="parentName">Parent Name: {{parent.first_name}} {{parent.last_name}}</div>
-    <button id="delete" ng-click="deleteUser(parent.id)">X</button>
-  </div>
+  <table class="parentArea table table-striped">
+    <thead>
+      <th><p>Parents:</p></th>
+    </thead>
+    <tbody data-ng-init="getParents()">
+      <tr class="parentBox" ng-repeat="parent in parents">
+        <td class="teacherName col-md-4">{{parent.first_name}} {{parent.last_name}}</td>
+        <td class="col-md-1"><div class="btn btn-default" name="edit">Edit</div></td>
+        <td class="col-md-1"><div class="btn btn-default" name="delete" ng-click="deleteUser(parent.id)">Delete</div></td>
+        <td class="col-md-6"></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

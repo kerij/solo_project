@@ -1,6 +1,15 @@
 myApp.controller('TeacherController', ['$scope', '$http', '$location', 'userFactory', 'loggedinFactory', 'teacherFactory', function($scope, $http, $location, userFactory, loggedinFactory, teacherFactory) {
   console.log("teacher controller working");
 
+  var events = ['trixInitialize', 'trixChange', 'trixSelectionChange', 'trixFocus', 'trixBlur']
+
+  for (var i = 0; i < events.length; i++) {
+        $scope[events[i]] = function(e) {
+            console.info('Event type:', e.type);
+        }
+    };
+
+
   $scope.userFactory = userFactory;
   $scope.loggedinFactory = loggedinFactory;
   $scope.teacherFactory = teacherFactory;

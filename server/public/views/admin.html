@@ -1,15 +1,14 @@
-<nav class="navbar navbar-inverse" role="navigation">
-    <!-- <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="#">Admin</a>
-    </div> -->
-    <ul class="nav navbar-nav">
-        <li><a ui-sref=".teachers">Teachers</a></li>
-        <li><a ui-sref=".classes">Classes</a></li>
-        <li><a ui-sref=".parents">Parents</a></li>
-        <li><a ui-sref=".students">Students</a></li>
-        <li><a ui-sref=".weekly">Admin Weekly Update</a></li>
-    </ul>
-</nav>
-<button class="btn btn-default logout" ng-click="logout()">Log Out</button>
+<div class="container">
+  <nav class="navbar navbar-inverse admin" role="navigation">
+      <ul class="nav navbar-nav">
+          <li><a ui-sref=".teachers">Teachers</a></li>
+          <li><a ui-sref=".classes">Classes</a></li>
+          <li><a ui-sref=".parents">Parents</a></li>
+          <li><a ui-sref=".students">Students</a></li>
+          <li><a ui-sref=".weekly">Admin Weekly Update</a></li>
+      </ul>
+  </nav>
+  <button class="btn btn-default logout" ng-click="logout()">Log Out</button>
 
-<main ui-view></main>
+  <main ui-view></main>
+</div>

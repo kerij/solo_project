@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     }
 
-    client.query("SELECT * FROM students",
+    client.query("SELECT * FROM students ORDER BY last_name ASC, first_name ASC",
       function(err, result) {
         console.log('what up');
         done();

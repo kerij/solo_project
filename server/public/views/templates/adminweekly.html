@@ -1,6 +1,8 @@
-<div>
+<!-- I need to a column to the database, define the function in the admin controller, and add a server route for this to work.  -->
+
+<div class="container">
   <form ng-submit="editWeekly($index, teacherClass)">
-    <textarea ng-model="teacherClass.weekly_update"></textarea>
+    <trix-editor ng-model="teacherClass.weekly_update"></trix-editor>
     <input class="btn btn-default" type="submit" name="submit" value="Submit" />
   </form>
 </div>

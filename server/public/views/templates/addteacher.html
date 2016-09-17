@@ -25,11 +25,18 @@
     <a href="#admin">Cancel</a>
   </form>
 
-</div>
 
-<div data-ng-init="getTeachers()">
-  <div class="teacherBox" ng-repeat="teacher in teachers">
-    <div id="teacherName">Teacher Name: {{teacher.first_name}} {{teacher.last_name}}</div>
-    <button id="delete" ng-click="deleteUser(teacher.id)">X</button>
-  </div>
+  <table class="teacherArea table table-striped">
+    <thead>
+      <th><p>Teachers:</p></th>
+    </thead>
+    <tbody data-ng-init="getTeachers()">
+      <tr class="teacherBox" ng-repeat="teacher in teachers">
+        <td class="teacherName col-md-4">{{teacher.first_name}} {{teacher.last_name}}</td>
+        <td class="col-md-1"><div class="btn btn-default" name="edit">Edit</div></td>
+        <td class="col-md-1"><div class="btn btn-default" name="delete" ng-click="deleteUser(teacher.id)">Delete</div></td>
+        <td class="col-md-6"></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -18,18 +18,31 @@
     </div>
     <div>
         <label for="class_info">Class Information:</label>
-        <textarea name="class_info" rows="10" cols="50" ng-model="class.class_desc"></textarea>
+        <trix-editor angular-trix ng-model="class.class_desc" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" trix-selection-change="trixSelectionChange(e, editor);" trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);"></trix-editor>
     </div>
     <input class="btn btn-default" type="submit" name="submit" value="Submit" />
     <a href="#admin">Cancel</a>
   </form>
 
-</div>
 
-
-<div data-ng-init="getClasses()">
-  <div class="classBox" ng-repeat="class in classes">
-    <div id="className">Class Name: {{class.class_name}} Class Period: {{class.period}}</div>
-    <button id="delete" ng-click="deleteClass(class.class_id)">X</button>
-  </div>
+  <table class="teacherArea table table-striped">
+    <thead>
+      <th><p>Classes:</p></th>
+    </thead>
+    <tbody data-ng-init="getClasses()">
+      <tr>
+        <th class="col-md-4">Class Name</th>
+        <th class="col-md-2">Period</th>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-4"></td>
+      </tr>
+      <tr class="classBox" ng-repeat="class in classes">
+        <td class="className col-md-4">{{class.class_name}}</td>
+        <td class="col-md-2">{{class.period}}</td>
+        <td class="col-md-1"><div name="edit" class="btn btn-default">Edit</div></td>
+        <td class="col-md-1"><div name="delete" class="btn btn-default" ng-click="deleteClass(class.class_id)">Delete</div></td>
+        <td class="col-md-4"></td>
+      </tr>
+    </tbody>
 </div>

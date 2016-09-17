@@ -22,6 +22,7 @@ var editClass = require('./routes/editClass');
 var editWeekly = require('./routes/editWeekly');
 var deleteUser = require('./routes/deleteUser');
 var deleteClass = require('./routes/deleteClass');
+var deleteStudent = require('./routes/deleteStudent');
 var group = require('./routes/group');
 
 app.use(bodyParser.json());
@@ -56,6 +57,7 @@ app.use('/editClass', editClass);
 app.use('/editWeekly', editWeekly);
 app.use('/deleteUser', deleteUser);
 app.use('/deleteClass', deleteClass);
+app.use('/deleteStudent', deleteStudent);
 app.use('/group', group);
 app.use('/*', index);
 

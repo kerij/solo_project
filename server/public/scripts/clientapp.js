@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router', 'angularTrix']);
+var myApp = angular.module('myApp', ['ui.router', 'angularTrix', 'ngSanitize']);
 
 myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouteProvider) {
 

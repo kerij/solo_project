@@ -1,6 +1,14 @@
 myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactory', function($scope, $http, $location, userFactory) {
   console.log("admin controller working");
 
+  var events = ['trixInitialize', 'trixChange', 'trixSelectionChange', 'trixFocus', 'trixBlur']
+
+  for (var i = 0; i < events.length; i++) {
+        $scope[events[i]] = function(e) {
+            console.info('Event type:', e.type);
+        }
+    };
+
   $scope.user = {
       first_name: '',
       last_name: '',
@@ -167,6 +175,14 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
         $http.delete('/deleteClass/' + classID).then(function(){
           console.log('delete went through');
           $scope.getClasses();
+        });
+      }
+
+      $scope.deleteStudent = function(studentID){
+        console.log(classID);
+        $http.delete('/deleteStudent/' + studentID).then(function(){
+          console.log('delete went through');
+          $scope.getStudents();
         });
       }
 
