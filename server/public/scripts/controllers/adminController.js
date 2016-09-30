@@ -124,6 +124,7 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
                   period6: '',
                   period7: ''
               }
+              $scope.getStudents();
               $location.path('/admin');
             },
             function(response) {
@@ -179,7 +180,7 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
       }
 
       $scope.deleteStudent = function(studentID){
-        console.log(classID);
+        console.log(studentID);
         $http.delete('/deleteStudent/' + studentID).then(function(){
           console.log('delete went through');
           $scope.getStudents();
