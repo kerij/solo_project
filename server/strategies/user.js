@@ -1,8 +1,23 @@
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var encryptLib = require('../modules/encryption');
-var connection = require('../modules/connection');
+//var connection = require('../modules/connection');
 var pg = require('pg');
+
+var config = {
+  user: 'kerijackson', //env var: PGUSER
+  database: 'solo', //env var: PGDATABASE
+  password: '', //env var: PGPASSWORD
+  port: 5432, //env var: PGPORT
+  max: 1000, // max number of clients in the pool
+  idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+};
+
+
+//this initializes a connection pool
+//it will keep idle connections open for a 30 seconds
+//and set a limit of maximum 10 idle clients
+var pool = new pg.Pool(config);
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -11,7 +26,7 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(id, done) {
 //TODO SQL query
   console.log('called deserializeUser');
-  pg.connect(connection, function (err, client) {
+  pool.connect(function (err, client) {
 
     var user = {};
     console.log('called deserializeUser - pg');
@@ -40,7 +55,7 @@ passport.use('local', new localStrategy({
     passReqToCallback: true,
     usernameField: 'username'
     }, function(req, username, password, done){
-	    pg.connect(connection, function (err, client) {
+	    pool.connect(function (err, client) {
 	    	console.log('called local - pg');
 	    	var user = {};
         var query = client.query("SELECT * FROM users WHERE username = $1", [username]);

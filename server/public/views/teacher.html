@@ -2,23 +2,23 @@
   <div data-ng-init="isLoggedIn()">
     <h2>Welcome, {{user.first_name}}</h2>
   </div>
-  <button class="btn btn-default logout" ng-click="logout()">Log Out</button>
 
   <div class="container">
+    <button class="btn btn-default logout" ng-click="logout()">Log Out</button>
     <div class="classBox" ng-repeat="teacherClass in teacherClasses">
       <div class="className"><strong>Class Name: </strong> {{teacherClass.class_name}} <strong>Class Period: </strong> {{teacherClass.period}}</div>
       <button class="btn btn-default" class="showDesc" ng-click="showDesc = !showDesc">Edit Description</button>
       <button class="btn btn-default" class="showWeekly" ng-click="showWeekly = !showWeekly">Edit Weekly Update</button>
       <div class="desc" ng-show = "showDesc">
         <form ng-submit="editDesc($index, teacherClass)">
-          <trix-editor angular-trix ng-model="teacherClass.class_desc" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" trix-selection-change="trixSelectionChange(e, editor);" trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);">{{teacherClass.class_desc}}</trix-editor>
+          <trix-editor angular-trix class="trix" ng-model="teacherClass.class_desc" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" trix-selection-change="trixSelectionChange(e, editor);" trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);">{{teacherClass.class_desc}}</trix-editor>
           <input class="btn btn-default" type="submit" name="submit" value="Submit" ng-click="showDesc = !showDesc" />
           <div class="btn btn-default" class="hideWeekly" ng-click="showDesc = !showDesc">Cancel</div>
         </form>
       </div>
       <div class="weekly" ng-show = "showWeekly">
         <form ng-submit="editWeekly($index, teacherClass)">
-          <trix-editor angular-trix ng-model="teacherClass.weekly_update" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" trix-selection-change="trixSelectionChange(e, editor);" trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);"></trix-editor>
+          <trix-editor angular-trix class="trix" ng-model="teacherClass.weekly_update" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" trix-selection-change="trixSelectionChange(e, editor);" trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);"></trix-editor>
           <input class="btn btn-default" type="submit" name="submit" value="Submit" ng-click="showWeekly = !showWeekly" />
           <div class="btn btn-default" class="hideWeekly" ng-click="showWeekly = !showWeekly">Cancel</div>
         </form>
