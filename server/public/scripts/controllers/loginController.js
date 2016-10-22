@@ -11,7 +11,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
 
     $scope.login = function() {
       if($scope.user.username == '' || $scope.user.password == '') {
-        $scope.message = "Enter your username and password!";
+        $scope.message = "You must enter a username and password.";
       } else {
         console.log('sending to server...', $scope.user);
         $http.post('/', $scope.user).then(function(response) {
@@ -28,7 +28,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
             }
           } else {
             console.log('failure: ', response);
-            $scope.message = "Wrong!!";
+            $scope.message = "Incorrect login information.";
           }
         });
       }
