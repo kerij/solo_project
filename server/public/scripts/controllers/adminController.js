@@ -106,7 +106,7 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'userFactor
           data.period6 = $scope.student.period6.class_id;
           data.period7 = $scope.student.period7.class_id;
           if($scope.student.first_name == '' || $scope.student.last_name == '') {
-            $scope.message = "First and last names are required!";
+            $scope.message = "Make sure you have entered a student first and last name.";
           } else {
             console.log('sending to server...', $scope.student);
             $http.post('/student', $scope.student).then(function(response) {
