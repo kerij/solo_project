@@ -22,7 +22,6 @@ myApp.controller('TeacherController', ['$scope', '$http', '$location', 'userFact
 
   $scope.isLoggedIn = function() {
     loggedinFactory.isLoggedIn().then(function(response) {
-      console.log('The person logged in:', response);
       console.log('the id of the person logged in:', response.id)
       $scope.user = response;
       $scope.getTeacherClasses(response.id);
